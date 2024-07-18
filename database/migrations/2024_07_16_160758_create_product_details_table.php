@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('m_product_id');
             $table->integer('varians');
             $table->double('price', 15, 2);
+            $table->text('path'); // Lokasi file foto
             $table->timestamps();
         });
     }

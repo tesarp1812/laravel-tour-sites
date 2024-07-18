@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class travel_pack extends Model
 {
     use HasFactory;
-    use SoftDeletes; // Use SoftDeletes library
+    // use SoftDeletes; // Use SoftDeletes library
     public $timestamps = true;
     protected $fillable = [
         'min_pax',

@@ -45,7 +45,7 @@ class DatabaseSeeder extends Seeder
                 'id' => $travelId,
                 'min_pax' => $faker->numberBetween(1, 10),
                 'max_pax' => $faker->numberBetween(11, 50),
-                'price' => $faker->randomFloat(2, 100000, 1000000),
+                'price' => $faker->randomFloat( 100000, 1000000),
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);
@@ -60,12 +60,14 @@ class DatabaseSeeder extends Seeder
             'updated_at' => now(),
         ]);
 
+        
         DB::table('m_product_details')->insert([
             'id' => (string) Str::uuid(),
             'sub_name' => 'Sari Jahe Merah',
             'm_product_id' => $productId,
             'varians' => 100,
             'price' => 25000,
+            'path' => 'images/sari-toga.jpg',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
@@ -76,6 +78,7 @@ class DatabaseSeeder extends Seeder
             'm_product_id' => $productId,
             'varians' => 300,
             'price' => 70000,
+            'path' => 'images/sari-toga.jpg',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
@@ -86,6 +89,7 @@ class DatabaseSeeder extends Seeder
             'm_product_id' => $productId,
             'varians' => 100,
             'price' => 25000,
+            'path' => 'images/sari-toga.jpg',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
@@ -96,6 +100,7 @@ class DatabaseSeeder extends Seeder
             'm_product_id' => $productId,
             'varians' => 300,
             'price' => 70000,
+            'path' => 'images/sari-toga.jpg',
             'created_at' => now(),
             'updated_at' => now(),
         ]);

@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class product_details extends Model
 {
     use HasFactory;
-    use SoftDeletes; // Use SoftDeletes library
+    // use SoftDeletes; 
     public $timestamps = true;
     protected $fillable = [
         'sub_name',

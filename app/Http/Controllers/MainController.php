@@ -3,15 +3,25 @@
 namespace App\Http\Controllers;
 
 use App\Models\product;
+use App\Models\product_details;
+use App\Models\travel_pack;
 use Illuminate\Http\Request;
 
 class MainController extends Controller
 {
-    public function index()
+    public function showProduct()
     {
-        $products = product::all();
+        $products = product::first();
+        $product_details = product_details::all();
         // dd($products);
-        return view('index', compact('products'));
+        return view('umkm', compact('products','product_details'));
+    }
+
+    public function showTrips()
+    {
+        $travel_pack = travel_pack::all();
+        // dd($travel_pack);
+        return view('trips', compact('travel_pack'));
     }
 
     /**
