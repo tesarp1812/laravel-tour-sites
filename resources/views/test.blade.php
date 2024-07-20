@@ -7,7 +7,6 @@
     <li><a href="umkm" class="nav-link">UMKM</a></li>
     <li><a href="trips" class="nav-link">Pementasan</a></li>
     <li><a href="contact" class="nav-link">Hubungi Kami</a></li>
-    <li><a href="login" class="nav-link">Login</a></li>
     @endsection
 @endsection
 

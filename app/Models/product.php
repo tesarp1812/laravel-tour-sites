@@ -13,6 +13,12 @@ class product extends Model
     use HasFactory;
     // use SoftDeletes; // Use SoftDeletes library
     // public $timestamps = true;
+
+    public function details()
+    {
+        return $this->hasMany(product_details::class, 'm_product_id', 'id');
+    }
+
     protected $fillable = [
         'name',
         'description', 
