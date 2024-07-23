@@ -799,7 +799,7 @@
     @yield('head')
 </head>
 
-<body data-target=".site-navbar-target" data-offset="300">
+<body data-target=".site-navbar-target" >
 
 
     <div class="site-wrap" id="home-section">
@@ -812,7 +812,6 @@
             </div>
             <div class="site-mobile-menu-body"></div>
         </div>
-
 
 
         <header class="site-navbar site-navbar-target" role="banner">
@@ -841,43 +840,31 @@
             </div>
             @yield('header')
         </header>
-        
 
-        <div class="container-fluid display-table">
-            <div class="row display-table-row">
-                <div class="col-md-2 col-sm-1 hidden-xs display-table-cell v-align box" id="navigation">
-                    <div class="navi">
-                        <ul>
-                            @yield('li')
-                        </ul>
+
+        <main>
+            <div class="container-fluid display-table">
+                <div class="row display-table-row">
+                    <div class="col-md-2 col-sm-1 hidden-xs display-table-cell v-align box" id="navigation">
+                        <div class="navi">
+                            <ul>
+                                @yield('li')
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-10 col-sm-11 display-table-cell v-align">
+                        <div class="user-dashboard">
+                            @yield('dashboard-menu')
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-10 col-sm-11 display-table-cell v-align">
-                    <!--<button type="button" class="slide-toggle">Slide Toggle</button> -->
-                    <div class="row">
-                        {{-- <header>
-                            <div class="dropdown">
-                                <button class="btn btn-secondary dropdown-toggle" type="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    {{ auth()->user()->name }}
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li><form action="/logout" method="POST">
-                                        @csrf
-                                        <button type="submit" class="dropdown-item"><i class="bi bi-box-arrow-right">
-                                                Logout</i></button>
-                                    </form></li>
-                                </ul>
-                            </div>
-                        </header> --}}
-                    </div>
-                    <div class="user-dashboard">
-                        @yield('dashboard-menu')
-                    </div>
-                </div>
+    
             </div>
+            @yield('main')
+        </main>
 
-        </div>
+
+        
 
 
 

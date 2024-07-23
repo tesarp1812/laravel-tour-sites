@@ -24,7 +24,22 @@ Route::controller(LoginController::class)->group(function () {
 Route::controller(AdminController::class)->middleware('auth')->group(function () {
     Route::get('/dashboard', 'dashboard');
     Route::get('/admin-umkm', 'umkm');
+    Route::get('/admin-umkm/{id}', 'formEditUmkm');
+    Route::put('/admin-umkm/{id}', 'editUmkm');
+    Route::post('/admin-umkm', 'storeUmkm');
+    Route::delete('/admin-umkm/{id}', 'destroyUmkm');
+    
     Route::get('/admin-trips', 'trips');
+    Route::post('/admin-trips', 'storeTrips');
+    Route::put('/admin-trips/{id}', 'editTrips');
+    Route::delete('/admin-trips/{id}', 'destroyTrips');
+
+    Route::get('/admin-customers', 'customer');
+    
+});
+
+Route::controller(AdminController::class)->group(function(){
+    Route::post('/customers', 'storeCustomer');
 });
 
 Route::get('/', function () {

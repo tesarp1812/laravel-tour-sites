@@ -43,24 +43,27 @@
                 <h1 class="modal-title fs-5" id="exampleModalAddLabel">Tambah Data</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-                <div class="mb-3">
-                    <label class="form-label">Min Pax</label>
-                    <input type="number" class="form-control" value="">
+            <form action="admin-trips" method="POST">
+                @csrf
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="form-label">Min Pax</label>
+                        <input type="number" name="inputMinPax" class="form-control" value="">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Max Pax</label>
+                        <input type="number" name="inputMaxPax" class="form-control" value="">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Harga</label>
+                        <input type="number" name="inputPrice" class="form-control" value="">
+                    </div>
                 </div>
-                <div class="mb-3">
-                    <label class="form-label">Max Pax</label>
-                    <input type="number" class="form-control" value="">
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
                 </div>
-                <div class="mb-3">
-                    <label class="form-label">Harga</label>
-                    <input type="number" class="form-control" value="">
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
+            </form>
         </div>
     </div>
 </div>
@@ -77,73 +80,83 @@
         @foreach ($trips as $item)
             <tr>
                 <th scope="row">{{ $item->min_pax }} - {{ $item->max_pax }} Pax</th>
-                <td>{{ $item->price }}</td>
+                <td>Rp {{ number_format($item->price, 0, ',', '.') }}</td>
                 <td>
-
                     <!-- Button trigger modal edit -->
                     <button type="button" class="btn btn-info" data-bs-toggle="modal"
-                        data-bs-target="#exampleModalAddEdit">
+                        data-bs-target="#editModal-{{ $item->id }}">
                         <i class="bi bi-pencil-fill"></i>
                     </button>
 
-                    <!-- Modal Edit-->
-                    <div class="modal fade" id="exampleModalAddEdit" tabindex="-1"
-                        aria-labelledby="exampleModalAddEditLabel" aria-hidden="true">
+                    <!-- Modal Edit -->
+                    <div class="modal fade" id="editModal-{{ $item->id }}" tabindex="-1"
+                        aria-labelledby="editModalLabel-{{ $item->id }}" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="exampleModalAddEditLabel">Edit Data</h1>
+                                    <h1 class="modal-title fs-5" id="editModalLabel-{{ $item->id }}">Edit Data</h1>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <div class="mb-3">
-                                        <label class="form-label">Min Pax</label>
-                                        <input type="number" class="form-control" value="{{ $item->min_pax }}">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label class="form-label">Max Pax</label>
-                                        <input type="number" class="form-control" value="{{ $item->max_pax }}">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label class="form-label">Harga</label>
-                                        <input type="number" class="form-control" value="{{ $item->price }}">
-                                    </div>
+                                    <form action="/admin-trips/{{$item->id}}" method="POST">
+                                        @csrf
+                                        @method('PUT')
+                                        <div class="mb-3">
+                                            <label for="min_pax" class="form-label">Min Pax</label>
+                                            <input type="number" class="form-control" name="inputMinPax"
+                                                value="{{ old('min_pax', $item->min_pax) }}" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="max_pax" class="form-label">Max Pax</label>
+                                            <input type="number" class="form-control"  name="inputMaxPax"
+                                                value="{{ old('max_pax', $item->max_pax) }}" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="price" class="form-label">Harga</label>
+                                            <input type="number" class="form-control"  name="inputPrice"
+                                                value="{{ old('price', $item->price) }}" required>
+                                        </div>
                                 </div>
                                 <div class="modal-footer">
+                                    <button type="submit" class="btn btn-primary"
+                                        data-bs-dismiss="modal">Simpan</button>
                                     <button type="button" class="btn btn-secondary"
                                         data-bs-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Simpan Perubahan</button>
                                 </div>
+                                </form>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Button trigger modal Delete-->
+                    <!-- Button trigger modal Delete -->
                     <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                        data-bs-target="#exampleModalAddDelete">
+                        data-bs-target="#deleteModal-{{ $item->id }}">
                         <i class="bi bi-trash"></i>
                     </button>
 
-                    <!-- Modal Delete-->
-                    <div class="modal fade" id="exampleModalAddDelete" tabindex="-1"
-                        aria-labelledby="exampleModalAddDeleteLabel" aria-hidden="true">
+                    <!-- Modal Delete -->
+                    <div class="modal fade" id="deleteModal-{{ $item->id }}" tabindex="-1"
+                        aria-labelledby="deleteModalLabel-{{ $item->id }}" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="exampleModalAddDeleteLabel">Hapus Data</h1>
+                                    <h1 class="modal-title fs-5" id="deleteModalLabel-{{ $item->id }}">Hapus Data
+                                    </h1>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    Anda Yakin ingin
-                                        Menghapus
-                                        Data
+                                    Anda yakin ingin menghapus data ini?
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary"
-                                        data-bs-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-danger">Hapus Data</button>
+                                    <form action="/admin-trips/{{$item->id}}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-danger">Hapus Data</button>
+                                    </form>
                                 </div>
                             </div>
                         </div>

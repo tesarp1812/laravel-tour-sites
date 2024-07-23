@@ -11,13 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('m_product_details', function (Blueprint $table) {
+        Schema::create('customers', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('sub_name');
-            $table->string('m_product_id');
-            $table->integer('varians');
-            $table->double('price', 15, 2);
-            $table->string('image')->nullable(); // Lokasi file foto
+            $table->string('name');
+            $table->string('email');
+            $table->string('number', 20);
+            $table->text('message');
             $table->timestamps();
         });
     }
@@ -27,7 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('m_product_details');
+        Schema::dropIfExists('customers');
     }
-    
 };

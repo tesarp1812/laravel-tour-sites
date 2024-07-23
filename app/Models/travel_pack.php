@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class travel_pack extends Model
@@ -17,4 +18,17 @@ class travel_pack extends Model
         'price'
     ];
     protected $table = 'm_travel_packs';
+
+    protected $keyType = 'string'; // UUIDs are strings
+    public $incrementing = false;
+
+    // Generate a UUID for new trips
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($trips) {
+            $trips->id = (string) Str::uuid();
+        });
+    }
 }

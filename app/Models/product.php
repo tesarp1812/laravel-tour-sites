@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Str;
 
 class product extends Model
 {
@@ -24,4 +25,16 @@ class product extends Model
         'description', 
     ];
     protected $table = 'm_products';
+    protected $keyType = 'string'; // UUIDs are strings
+    public $incrementing = false;
+
+    // Generate a UUID for new products
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($product) {
+            $product->id = (string) Str::uuid();
+        });
+    }
 }

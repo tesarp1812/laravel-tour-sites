@@ -41,25 +41,29 @@
    
     <div class="row">
       <div class="col-lg-8 mb-5" >
-        <form action="#" method="post">
+        <form action="/customers" method="post">
+          @csrf
           <div class="form-group row">
-            <div class="col-md-6 mb-4 mb-lg-0">
-              <input type="text" class="form-control" placeholder="Nama Pertama">
-            </div>
-            <div class="col-md-6">
-              <input type="text" class="form-control" placeholder="Nama Terakhir">
+            <div class="col-md-12">
+              <input type="text" class="form-control" name="inputName" placeholder="Nama">
             </div>
           </div>
 
           <div class="form-group row">
             <div class="col-md-12">
-              <input type="text" class="form-control" placeholder="Alamat Email">
+              <input type="text" class="form-control" name="inputEmail" placeholder="Alamat Email">
             </div>
           </div>
 
           <div class="form-group row">
             <div class="col-md-12">
-              <textarea name="" id="" class="form-control" placeholder="Tulis Pesan Anda." cols="30" rows="10"></textarea>
+              <input type="number" class="form-control" name="inputNumber" placeholder="Nomer Telpon">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <div class="col-md-12">
+              <textarea id="" class="form-control" name="inputMessage" placeholder="Tulis Pesan Anda." cols="30" rows="10"></textarea>
             </div>
           </div>
           <div class="form-group row">
@@ -77,7 +81,6 @@
               <span class="d-block text-black">Alamat:</span>
               <span>Kaper, Jl Trans Flores, Desa Golo Bilas, Kec. Komodo, Kabupaten Manggarai Barat, Nusa Tenggara Tim., Indonesia</span></li>
             <li class="d-block mb-3"><span class="d-block text-black">Telepon:</span><span>+6285253922070 / 6285239987278</span></li>
-            {{-- <li class="d-block mb-3"><span class="d-block text-black">Email:</span><span>info@yourdomain.com</span></li> --}}
           </ul>
         </div>
       </div>

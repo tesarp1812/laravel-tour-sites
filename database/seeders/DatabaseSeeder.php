@@ -67,7 +67,7 @@ class DatabaseSeeder extends Seeder
             'm_product_id' => $productId,
             'varians' => 100,
             'price' => 25000,
-            'path' => 'images/sari-toga.jpg',
+            'image' => 'images/sari-toga.jpg',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
@@ -78,7 +78,7 @@ class DatabaseSeeder extends Seeder
             'm_product_id' => $productId,
             'varians' => 300,
             'price' => 70000,
-            'path' => 'images/sari-toga.jpg',
+            'image' => 'images/sari-toga.jpg',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
@@ -89,7 +89,7 @@ class DatabaseSeeder extends Seeder
             'm_product_id' => $productId,
             'varians' => 100,
             'price' => 25000,
-            'path' => 'images/sari-toga.jpg',
+            'image' => 'images/sari-toga.jpg',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
@@ -100,7 +100,7 @@ class DatabaseSeeder extends Seeder
             'm_product_id' => $productId,
             'varians' => 300,
             'price' => 70000,
-            'path' => 'images/sari-toga.jpg',
+            'image' => 'images/sari-toga.jpg',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
