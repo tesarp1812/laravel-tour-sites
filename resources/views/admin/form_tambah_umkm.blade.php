@@ -1,5 +1,6 @@
 @extends('admin.layout')
 
+
 @section('head')
 @endsection
 
@@ -21,12 +22,12 @@
 @section('li')
     <li><a href="dashboard"><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Home</span></a>
     </li>
-    <li class="active"><a href="admin-umkm"><i class="fa fa-tasks" aria-hidden="true"></i><span
+    <li class="active"><a href="/admin-umkm"><i class="fa fa-tasks" aria-hidden="true"></i><span
                 class="hidden-xs hidden-sm">UMKM</span></a>
     </li>
-    <li><a href="admin-trips"><i class="fa fa-bar-chart" aria-hidden="true"></i><span
+    <li><a href="/admin-trips"><i class="fa fa-bar-chart" aria-hidden="true"></i><span
                 class="hidden-xs hidden-sm">Trips</span></a></li>
-    <li><a href="admin-customers"><i class="fa fa-user" aria-hidden="true"></i><span
+    <li><a href="/admin-customers"><i class="fa fa-user" aria-hidden="true"></i><span
                 class="hidden-xs hidden-sm">Customers</span></a></li>
 @endsection
 @section('dashboard-menu')
@@ -60,7 +61,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <a href="/admin-umkm" class="btn btn-secondary">Kembali</a>
                         <button type="submit" class="btn btn-primary">Save changes</button>
                     </div>
                 </form>
