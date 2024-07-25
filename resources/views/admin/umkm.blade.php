@@ -32,9 +32,10 @@
 @section('dashboard-menu')
     <div class="text-end mb-3">
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalAdd">
+        {{-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalAdd">
             Tambah Data
-        </button>
+        </button> --}}
+        <a href="/admin-umkm/add" class="btn btn-primary">Tambah Data</a>
     </div>
 
     <!-- Modal tambah data-->

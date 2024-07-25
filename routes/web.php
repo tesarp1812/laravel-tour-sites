@@ -24,6 +24,7 @@ Route::controller(LoginController::class)->group(function () {
 Route::controller(AdminController::class)->middleware('auth')->group(function () {
     Route::get('/dashboard', 'dashboard');
     Route::get('/admin-umkm', 'umkm');
+    Route::get('/admin-umkm/add', 'addUmkm');
     Route::get('/admin-umkm/{id}', 'formEditUmkm');
     Route::put('/admin-umkm/{id}', 'editUmkm');
     Route::post('/admin-umkm', 'storeUmkm');

@@ -59,6 +59,11 @@ class AdminController extends Controller
         return redirect('/admin-umkm')->with(['success' => 'Data Berhasil Disimpan!']);
     }
 
+    public function addUmkm()
+    {
+        return view('admin.form_tambah_umkm');
+    }
+
     public function formEditUmkm($id)
     {
         $product = product_details::findOrFail($id);
