@@ -13,6 +13,8 @@ Route::controller(MainController::class)->group(function () {
     Route::get('/umkm', 'showProduct');
     Route::get('/trips', 'showTrips');
     Route::post('/orders', 'store');
+    Route::get('/products/{id}', 'showProductById')->name('products.show'); 
+    Route::get('/', 'index');
 });
 
 Route::controller(LoginController::class)->group(function () {
@@ -43,9 +45,9 @@ Route::controller(AdminController::class)->group(function(){
     Route::post('/customers', 'storeCustomer');
 });
 
-Route::get('/', function () {
-    return view('index');
-});
+// Route::get('/', function () {
+//     return view('index');
+// });
 
 Route::get('sejarah', function () {
     return view('sejarah');

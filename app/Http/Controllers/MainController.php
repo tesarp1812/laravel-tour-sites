@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\product;
+// use App\Models\product_details;
 use App\Models\product_details;
 use App\Models\travel_pack;
 use Illuminate\Http\Request;
@@ -11,10 +12,19 @@ class MainController extends Controller
 {
     public function showProduct()
     {
-        $products = product::first();
+        $products = product::all();
         $product_details = product_details::all();
-        // dd($products);
-        return view('umkm', compact('products','product_details'));
+        // dd($products, $product_details);
+        return view('umkm', compact('products', 'product_details'));
+    }
+
+    public function showProductById($id)
+    {
+        // dd($id);
+        $product = product::find($id);
+        $product_details = product_details::where('m_product_id', $id)->get(); 
+        // dd($product_details, $product);
+        return view('detailproduk', compact('product', 'product_details'));
     }
 
     public function showTrips()
@@ -86,5 +96,15 @@ class MainController extends Controller
         $product->delete();
 
         return redirect()->route('index')->with('success', 'Product deleted successfully.');
+    }
+
+    public function index()
+    {
+        // Ambil data dari database
+        $products = Product::all();
+        $product_details = Product_Details::all();
+
+        // Kirim data ke view
+        return view('index', compact('products', 'product_details'));
     }
 }

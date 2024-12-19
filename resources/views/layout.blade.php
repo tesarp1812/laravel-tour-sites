@@ -8,23 +8,37 @@
 
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,700,900&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="fonts/icomoon/style.css">
+    {{-- font style logo lobster --}}
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="css/jquery.fancybox.min.css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
-    <link rel="stylesheet" href="css/aos.css">
+    {{-- <link rel="stylesheet" href="fonts/icomoon/style.css"> --}}
+
+    <link rel="stylesheet" href="{{ asset('fonts/icomoon/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-datepicker.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/jquery.fancybox.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/owl.theme.default.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('fonts/flaticon/font/flaticon.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/aos.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
     <!-- MAIN CSS -->
-    <link rel="stylesheet" href="css/style.css">
+    {{-- <link rel="stylesheet" href="css/style.css"> --}}
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}?v={{ time() }}">
+
+
 @yield('head')
+{{-- <style>
+    body {
+        background-image: url('{{ asset('images/bg-web/side-wave_background.jpg') }}');
+        background-size: cover;
+        background-position: center;
+    }
+</style> --}}
 </head>
 
 <body data-target=".site-navbar-target" data-offset="300">
@@ -50,7 +64,8 @@
 
                     <div class="col-3 ">
                         <div>
-                            <a href="/">BEO KAPER</a>
+                            <img src="{{ asset('images/logo_malinau.png') }}" alt="Image" class="img-fluid" style="height: 75px; width: 100px">
+                            {{-- <a href="/">BEO KAPER</a>          --}}
                         </div>
                     </div>
 
@@ -80,8 +95,7 @@
                     <div class="col-lg-3">
                         <h2 class="footer-heading mb-3">Alamat</h2>
                         <div class="row">
-                            <p>Kaper, Jl Trans Flores, Desa Golo Bilas, Kec. Komodo, Kabupaten Manggarai Barat, Nusa
-                                Tenggara Tim., Indonesia</p>
+                            <p>Malinau Hulu, Kec. Malinau Kota, Kabupaten Malinau, Kalimantan Utara</p>
                         </div>
                     </div>
                     <div class="col-lg-8 ml-auto">
@@ -98,7 +112,7 @@
                             <div class="col-lg-6">
                                 <h2 class="footer-heading mb-4">Jam Oprasional Pementasan Budaya Dan UMKM</h2>
                                 <p>Jam : 07.00 - 05.00 ( setiap hari )</p>
-                                <a href="https://wa.me/+6285253922070" class="btn btn-outline-success">
+                                <a href="https://wa.me/+6285253922070" class="btn btn-outline-success mb-2">
                                     <i class="bi bi-whatsapp"></i> +6285253922070
                                 </a>
                                 <a href="https://wa.me/+6285239987278" class="btn btn-outline-success">
@@ -113,22 +127,22 @@
         @yield('content')
     </div>
 
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/jquery-migrate-3.0.0.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/jquery.sticky.js"></script>
-    <script src="js/jquery.waypoints.min.js"></script>
-    <script src="js/jquery.animateNumber.min.js"></script>
-    <script src="js/jquery.fancybox.min.js"></script>
-    <script src="js/jquery.stellar.min.js"></script>
-    <script src="js/jquery.easing.1.3.js"></script>
-    <script src="js/bootstrap-datepicker.min.js"></script>
-    <script src="js/isotope.pkgd.min.js"></script>
-    <script src="js/aos.js"></script>
+    <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
+    <script src="{{ asset('js/jquery-migrate-3.0.0.js') }}"></script>
+    <script src="{{ asset('js/popper.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.sticky.js') }}"></script>
+    <script src="{{ asset('js/jquery.waypoints.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.animateNumber.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.fancybox.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.stellar.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.easing.1.3.js') }}"></script>
+    <script src="{{ asset('js/bootstrap-datepicker.min.js') }}"></script>
+    <script src="{{ asset('js/isotope.pkgd.min.js') }}"></script>
+    <script src="{{ asset('js/aos.js') }}"></script>
 
-    <script src="js/main.js"></script>
+    <script src="{{ asset('js/main.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>

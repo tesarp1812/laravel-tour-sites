@@ -6,12 +6,15 @@
 @section('header')
 @section('ul')
     <li><a href="/" class="nav-link">Home</a></li>
-    <li><a href="sejarah" class="nav-link">Sejarah</a></li>
+    {{-- <li><a href="sejarah" class="nav-link">Sejarah</a></li> --}}
     <li><a href="umkm" class="nav-link">UMKM</a></li>
     <li><a href="trips" class="nav-link">Pementasan</a></li>
     <li><a href="contact" class="nav-link">Hubungi Kami</a></li>
-    <li><a href="login" class="nav-link">Login</a></li>
-    <li class="active"><a href="dashboard" class="nav-link">Dashboard</a></li>
+    <li>
+        <a href="login" class="btn-login" style="color: #fff !important;">Admin</a>
+    </li>
+    {{-- <li><a href="login" class="nav-link">Login</a></li>
+    <li class="active"><a href="dashboard" class="nav-link">Dashboard</a></li> --}}
 @endsection
 @endsection
 

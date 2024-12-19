@@ -821,7 +821,8 @@
 
                     <div class="col-3 ">
                         <div>
-                            <a href="/">BEO KAPER</a>
+                            <img src="images/logo_malinau.png" alt="Image" class="img-fluid" style="height: 75px; width: 100px">
+                            {{-- <a href="/">BEO KAPER</a> --}}
                         </div>
                     </div>
 

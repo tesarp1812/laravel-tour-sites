@@ -26,38 +26,105 @@
 
         /* STRUCTURE */
 
+        /* Wrapper untuk form login */
+        /* Wrapper form */
         .wrapper {
             display: flex;
             align-items: center;
+            justify-content: center; /* Memastikan konten (termasuk tombol) terletak di tengah */
             flex-direction: column;
-            justify-content: center;
             width: 100%;
-            min-height: 100%;
+            min-height: 100vh; /* Full height */
+            background: none; /* Menghapus background hijau */
             padding: 20px;
         }
 
+        /* Styling form content dengan background transparan */
         #formContent {
-            -webkit-border-radius: 10px 10px 10px 10px;
-            border-radius: 10px 10px 10px 10px;
-            background: #fff;
-            padding: 30px;
-            width: 90%;
+            background: rgba(255, 255, 255, 0.8); /* Transparent white background */
+            border-radius: 15px; /* Rounded corners */
+            padding: 40px;
+            width: 100%;
             max-width: 450px;
-            position: relative;
-            padding: 0px;
-            -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
-            box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2); /* Soft shadow */
             text-align: center;
+            transition: all 0.3s ease;
         }
 
+        #formContent:hover {
+            transform: translateY(-10px); /* Hover effect */
+        }
+
+        /* Styling untuk heading */
+        #formContent .fadeIn.first h3 {
+            font-size: 30px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        /* Styling input fields */
+        #formContent input[type="text"], 
+        #formContent input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin: 12px 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        #formContent input[type="text"]:focus, 
+        #formContent input[type="password"]:focus {
+            border-color: #4CAF50; /* Change border color on focus */
+            box-shadow: 0 0 10px rgba(76, 175, 80, 0.5); /* Glow effect on focus */
+            outline: none;
+        }
+
+        /* Styling for the submit button */
+        #formContent input[type="submit"] {
+            width: 100%;
+            padding: 14px;
+            background-color: #4CAF50;
+            color: #fff;
+            font-size: 18px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block; /* Memastikan tombol berada di baris yang sama dengan input lainnya */
+            text-align: center; /* Center text inside button */
+        }
+
+        #formContent input[type="submit"]:hover {
+            background-color: #45a049; /* Darker green on hover */
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+            transform: translateY(-2px); /* Hover lift effect */
+        }
+
+        /* Styling for forgot password link */
         #formFooter {
-            background-color: #f6f6f6;
+            background-color: transparent;  /* Mengatur background menjadi transparan */
             border-top: 1px solid #dce8f1;
             padding: 25px;
             text-align: center;
             -webkit-border-radius: 0 0 10px 10px;
             border-radius: 0 0 10px 10px;
         }
+
+        /* Styling untuk link Forgot Password */
+        #formFooter a {
+            color: #4CAF50;  /* Menyesuaikan warna link */
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        #formFooter a:hover {
+            text-decoration: underline;  /* Efek hover pada link */
+        }
+
+
+
 
 
 
@@ -74,11 +141,8 @@
 
 
 
-        /* FORM TYPOGRAPHY*/
-
-        input[type=button],
-        input[type=submit],
-        input[type=reset] {
+       /* Styling untuk tombol */
+        input[type=submit], input[type=button] {
             background-color: #56baed;
             border: none;
             color: white;
@@ -92,49 +156,52 @@
             box-shadow: 0 10px 30px 0 rgba(95, 186, 233, 0.4);
             -webkit-border-radius: 5px 5px 5px 5px;
             border-radius: 5px 5px 5px 5px;
-            margin: 5px 20px 40px 20px;
+            margin: 20px 0 40px 0; /* Margin atas dan bawah lebih besar */
             -webkit-transition: all 0.3s ease-in-out;
             -moz-transition: all 0.3s ease-in-out;
             -ms-transition: all 0.3s ease-in-out;
             -o-transition: all 0.3s ease-in-out;
             transition: all 0.3s ease-in-out;
+            width: 100%; /* Membuat tombol menyesuaikan lebar container */
+            box-sizing: border-box; /* Memastikan padding dan margin tidak mempengaruhi ukuran */
         }
 
-        input[type=button]:hover,
+        /* Hover effect untuk tombol */
         input[type=submit]:hover,
-        input[type=reset]:hover {
+        input[type=button]:hover {
             background-color: #39ace7;
         }
 
-        input[type=button]:active,
+        /* Active state untuk tombol */
         input[type=submit]:active,
-        input[type=reset]:active {
-            -moz-transform: scale(0.95);
-            -webkit-transform: scale(0.95);
-            -o-transform: scale(0.95);
-            -ms-transform: scale(0.95);
+        input[type=button]:active {
             transform: scale(0.95);
         }
 
+        /* Pastikan input dan form teratur */
+        #formContent {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Menjaga agar form konten terpusat */
+            justify-content: center;
+            width: 100%;
+        }
+
+        /* Styling untuk input teks */
         input[type=text] {
             background-color: #f6f6f6;
             border: none;
             color: #0d0d0d;
             padding: 15px 32px;
             text-align: center;
-            text-decoration: none;
             display: inline-block;
             font-size: 16px;
             margin: 5px;
             width: 85%;
             border: 2px solid #f6f6f6;
-            -webkit-transition: all 0.5s ease-in-out;
-            -moz-transition: all 0.5s ease-in-out;
-            -ms-transition: all 0.5s ease-in-out;
-            -o-transition: all 0.5s ease-in-out;
             transition: all 0.5s ease-in-out;
-            -webkit-border-radius: 5px 5px 5px 5px;
             border-radius: 5px 5px 5px 5px;
+            box-sizing: border-box;
         }
 
         input[type=text]:focus {
@@ -145,6 +212,7 @@
         input[type=text]:placeholder {
             color: #cccccc;
         }
+
 
 
 
@@ -299,7 +367,9 @@
     <li><a href="umkm" class="nav-link">UMKM</a></li>
     <li><a href="trips" class="nav-link">Pementasan</a></li>
     <li><a href="contact" class="nav-link">Hubungi Kami</a></li>
-    <li class="active"><a href="login" class="nav-link">Login</a></li>
+    <li class="active">
+        <a href="login" class="btn-login" style="color: #fff !important;">Login</a>
+    </li>
 @endsection
 @endsection
 

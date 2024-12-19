@@ -3,11 +3,13 @@
 @section('header')
     @section('ul')
     <li><a href="/" class="nav-link">Home</a></li>
-    <li><a href="sejarah" class="nav-link">Sejarah</a></li>
+    {{-- <li><a href="sejarah" class="nav-link">Sejarah</a></li> --}}
     <li><a href="umkm" class="nav-link">UMKM</a></li>
     <li><a href="trips" class="nav-link">Pementasan</a></li>
     <li class="active"><a href="contact" class="nav-link">Hubungi Kami</a></li>
-    <li><a href="login" class="nav-link">Login</a></li>
+    <li>
+      <a href="login" class="btn-login" style="color: #fff !important;">Login</a>
+  </li>
     @endsection
 @endsection
 
@@ -16,7 +18,7 @@
   <div class="site-section-cover overlay" style="background-image: url('images/wisata-gibran.jpg')">
       <div class="container">
           <div class="row align-items-center justify-content-center text-center">
-              <div class="col-md-5" data-aos="fade-up">
+              <div class="col-md-8" data-aos="fade-up">
                   <h1 class="mb-3 text-white">Hubungi Kami</h1>
                   <p>Hubungi kami jika anda tertarik untuk mengikuti trips maupun untuk membeli produk yang ada berasal dari kampung KAPER</p>
               </div>
